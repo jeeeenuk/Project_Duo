@@ -22,6 +22,9 @@
     </style>
 </head>
 <body>
-메인입니다.
+<img src="/image/marryme.png">
+<div >
+<audio src="/audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay"></audio>
+</div>
 </body>
 </html>
