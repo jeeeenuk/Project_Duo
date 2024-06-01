@@ -2,14 +2,18 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+    <definition name="mainPage" template="/WEB-INF/mainpage/mainPage.jsp">
+    </definition>
+
     <definition name="mainLayout" template="/WEB-INF/layout/layoutBasic.jsp">
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
         <put-attribute name="info" value="/WEB-INF/layout/info.jsp"/>
         <put-attribute name="main" value="/WEB-INF/layout/main.jsp"/>
     </definition>
+
     <!-- macro -->
-    <definition name="*/*" extends="mainLayout">
-        <put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
+    <definition name="layout/*" extends="mainLayout">
+        <put-attribute name="main" value="/WEB-INF/layout/{1}.jsp"/>
     </definition>
 </tiles-definitions>
