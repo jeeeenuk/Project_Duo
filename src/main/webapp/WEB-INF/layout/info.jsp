@@ -18,10 +18,21 @@
         }
         pre.info{
             font-size: 16px;
-            border: 5px solid green;
+            border: 5px solid lightpink;
             padding: 10px 10px;
             border-radius: 50px;
-            background-color: #ffe4e1;
+            background-color: antiquewhite;
+        }
+        pre.info2{
+            font-size: 16px;
+            padding: 10px 10px;
+            border-radius: 50px;
+            border: 5px solid lightgreen;
+            background-color: lightgray;
+        }
+        .info:hover {
+            transition: all 3s;
+            transform: rotate(360deg);
         }
     </style>
 </head>
@@ -32,6 +43,11 @@
 <i class="bi bi-phone-fill"></i>&nbsp;010-2233-4455
 <i class="bi bi-cart4"></i>&nbsp;친구매칭사이트
 <i class="bi bi-apple"></i>&nbsp;밸런스게임도 해보세요
+</pre>
+<pre class="info2">
+<img src="/image/navercloud_logo.jpeg" style="width: 20px;height: 20px">네이버클라우드 비트캠프
+<i class="bi bi-person-circle"></i>&nbsp;비트캠프701
+<i class="bi bi-phone-fill"></i>&nbsp;서울특별시 강남구 <br>강남대로 94길 20 ,7층
 </pre>
 </body>
 </html>

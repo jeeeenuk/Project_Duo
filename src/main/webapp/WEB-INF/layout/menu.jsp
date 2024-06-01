@@ -36,7 +36,7 @@
 
         ul.menu li:hover{
             box-shadow: 5px 5px 5px gray;
-            background-color: #2e8b57;
+            background-color: lightblue;
             color: white;
         }
 
@@ -52,6 +52,20 @@
         div.loginarea button{
             width: 100px;
         }
+        .dropdown-menu {
+            display: none; /* 하위 메뉴 기본적으로 숨김 */
+            position: absolute; /* 하위 메뉴가 상대 위치에서 위치 설정 */
+            background-color: #f9f9f9; /* 배경색 설정 */
+            min-width: 90px; /* 최소 너비 설정 */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* 그림자 효과 설정 */
+            z-index: 1; /* 다른 요소 위에 표시되도록 z-index 설정 */
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block; /* 하위 메뉴 표시 */
+            transition: display 0.5s ease;
+        }
+
     </style>
     <c:set  var="root" value="<%=request.getContextPath()%>"/>
     <script type="text/javascript">
@@ -95,7 +109,7 @@
 </head>
 <body>
 
-<ul class="menu" style="margin-left: 300px">
+<ul class="menu" style="margin-left: 550px">
     <li>
         <a href="${root}/">Home</a>
     </li>
@@ -103,13 +117,25 @@
         <a href="${root}/member/form">회원가입</a>
     </li>
     <li>
-        <a href="${root}/member/list">회원목록</a>
+        <a href="${root}/matching/matching">내짝 만나기</a>
+    </li>
+    <li class="dropdown">
+        <a data-toggle="dropdown">게시판
+        <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="${root}/board/self">자기소개</a>
+            </li>
+            <li>
+                <a href="${root}/board/meeting">우리 만나요</a>
+            </li>
+            <li>
+                <a href="${root}/board/review">후기게시판</a>
+            </li>
+        </ul>
     </li>
     <li>
-        <a href="${root}/board/list">게시판</a>
-    </li>
-    <li>
-        <a href="${root}/guest/list">방명록</a>
+        <a href="${root}/guest/list">고객의소리</a>
     </li>
 </ul>
 <!-- 로그인 모달 다이얼로그 -->
@@ -167,7 +193,7 @@
 <div class="loginarea">
     <c:if test="${sessionScope.loginok==null}">
         <button type="button" id="btnlogin"
-                class="btn btn-success"
+                class="btn btn-secondary"
                 data-bs-toggle="modal" data-bs-target="#myLoginModal">로그인</button>
     </c:if>
 
