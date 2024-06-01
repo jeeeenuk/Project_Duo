@@ -22,6 +22,6 @@
     </style>
 </head>
 <body>
-info 입니다.
+<h2>info Frame 입니다.</h2>
 </body>
 </html>
