@@ -109,7 +109,7 @@
 </head>
 <body>
 
-<ul class="menu" style="margin-left: 550px">
+<ul class="menu" style="margin-left: 400px">
     <li>
         <a href="${root}/">Home</a>
     </li>
@@ -132,7 +132,7 @@
         </ul>
     </li>
     <li>
-        <a href="${root}/guest/list">고객의소리</a>
+        <a href="${root}/complaint/complaint">고객의소리</a>
     </li>
 </ul>
 <!-- 로그인 모달 다이얼로그 -->

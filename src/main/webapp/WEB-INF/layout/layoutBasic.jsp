@@ -44,7 +44,7 @@
         div.mainlayout>div.info{
             top:250px;
             left: 50px;
-            width: 250px;
+            width: 200px;
             height: 300px;
 
         }

@@ -38,16 +38,16 @@
 </head>
 <body>
 <pre class="info">
-<i class="bi bi-shop-window"></i>&nbsp;(주)메리미
+<i class="bi bi-house-heart"></i>&nbsp;(주)메리미
 <i class="bi bi-person-circle"></i>&nbsp;대표 : 신완철,정진욱
 <i class="bi bi-phone-fill"></i>&nbsp;010-2233-4455
-<i class="bi bi-cart4"></i>&nbsp;친구매칭사이트
-<i class="bi bi-apple"></i>&nbsp;밸런스게임도 해보세요
+<i class="bi bi-people-fill"></i>&nbsp;친구매칭사이트
+<i class="bi bi-controller"></i>&nbsp;밸런스게임도 해보세요
 </pre>
 <pre class="info2">
 <img src="/image/navercloud_logo.jpeg" style="width: 20px;height: 20px">네이버클라우드 비트캠프
-<i class="bi bi-person-circle"></i>&nbsp;비트캠프701
-<i class="bi bi-phone-fill"></i>&nbsp;서울특별시 강남구 <br>강남대로 94길 20 ,7층
+<i class="bi bi-book"></i>&nbsp;비트캠프701
+<i class="bi bi-building"></i>&nbsp;서울특별시 강남구 <br>강남대로 94길 20 ,7층
 </pre>
 </body>
 </html>
