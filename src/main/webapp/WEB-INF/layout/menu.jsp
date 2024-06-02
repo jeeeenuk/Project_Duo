@@ -121,7 +121,7 @@
         <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
-                <a href="../board/self">자기소개</a>
+                <a href="${root}/board/self">자기소개</a>
             </li>
             <li>
                 <a href="${root}/board/meeting">우리 만나요</a>
