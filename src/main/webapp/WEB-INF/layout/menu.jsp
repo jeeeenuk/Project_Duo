@@ -96,7 +96,7 @@
 
 <ul class="menu" style="margin-left: 400px">
     <li>
-        <a href="${root}/">Home</a>
+        <a href="${root}/main/login">Home</a>
     </li>
     <li>
         <a href="${root}/matching/matching">내짝 만나기</a>

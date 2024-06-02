@@ -3,7 +3,9 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
     <definition name="mainPage" template="/WEB-INF/mainpage/mainPage.jsp"/>
-
+<!--    tile 의 기본 동작 원리-->
+<!--    메인 레이아웃의 이름을 가진 집이 있다고 칠 경우-->
+<!--    put-attribute 에 있는 각각의 name 들은 층이라고 생각하면 된다.-->
     <definition name="mainLayout" template="/WEB-INF/layout/layoutBasic.jsp">
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
@@ -11,12 +13,27 @@
         <put-attribute name="main" value="/WEB-INF/layout/main.jsp"/>
     </definition>
     <!-- macro -->
+<!--    이때 mainLayout 이라는 집 이름을 가진 녀석의 층수의 호수를 변경 시킨다고 생각하면 된다.-->
+<!--    즉, mainLayout 의 main 이라는 이름을 가진 층의 호수를 바꿔준다.-->
+<!--    결과적으로 -->
+<!--    header -> layout/header-->
+<!--    menu -> layout/menu-->
+<!--    info -> layout/info-->
+<!--    main -> layout/main-->
     <definition name="layout/*" extends="mainLayout">
         <put-attribute name="main" value="/WEB-INF/layout/{1}.jsp"/>
     </definition>
+<!--    위와 같은 이유를 토대로 아래와 같이 생각할 수 있습니다.-->
+<!--    header -> layout/header-->
+<!--    menu -> layout/menu-->
+<!--    info -> layout/info-->
+<!--    main -> board/*-->
+<!--    이 때 board 뒤에 붙어 있는 * 는 와일드 카드이며, /board/ 뒤에는 .jsp 가 붙은 모든 파일을 불러올 수 있다는 의미입니다.-->
+<!--    아래의 모든 definition 은 위와 같은 이유로 설정해주었습니다.-->
     <definition name="board/*" extends="mainLayout">
         <put-attribute name="main" value="/WEB-INF/board/{1}.jsp"/>
     </definition>
+
     <definition name="complaint/*" extends="mainLayout">
         <put-attribute name="main" value="/WEB-INF/complaint/{1}.jsp"/>
     </definition>
