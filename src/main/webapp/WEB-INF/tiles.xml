@@ -10,10 +10,18 @@
         <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
         <put-attribute name="info" value="/WEB-INF/layout/info.jsp"/>
         <put-attribute name="main" value="/WEB-INF/layout/main.jsp"/>
+<!--        <put-attribute name="meeting" value="/WEB-INF/board/meeting.jsp"/>-->
+<!--        <put-attribute name="self" value="/WEB-INF/board/self.jsp"/>-->
+<!--        <put-attribute name="review" value="/WEB-INF/board/review.jsp"/>-->
     </definition>
 
     <!-- macro -->
-    <definition name="layout/*" extends="mainLayout">
-        <put-attribute name="main" value="/WEB-INF/layout/{1}.jsp"/>
+    <definition name="*/*" extends="mainLayout">
+        <put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
     </definition>
+<!--    <definition name="board/*" extends="mainLayout">-->
+<!--        <put-attribute name="board" value="/WEB-INF/board/{1}.jsp"/>-->
+<!--    </definition>-->
+    <definition name="mainpage/mainPage" template="/WEB-INF/mainpage/mainPage.jsp"/>
+
 </tiles-definitions>
