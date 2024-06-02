@@ -14,7 +14,7 @@ spring:
 #    password: 1234
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-n9jgk-kr.vpc-pub-cdb.ntruss.com:3306/Duo?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://db-n9jj0-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul
     username: study
     password: bitcamp!@#123
 

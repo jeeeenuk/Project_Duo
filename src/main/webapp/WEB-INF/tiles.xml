@@ -2,26 +2,25 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-    <definition name="mainPage" template="/WEB-INF/mainpage/mainPage.jsp">
-    </definition>
+    <definition name="mainPage" template="/WEB-INF/mainpage/mainPage.jsp"/>
 
     <definition name="mainLayout" template="/WEB-INF/layout/layoutBasic.jsp">
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
         <put-attribute name="info" value="/WEB-INF/layout/info.jsp"/>
         <put-attribute name="main" value="/WEB-INF/layout/main.jsp"/>
-<!--        <put-attribute name="meeting" value="/WEB-INF/board/meeting.jsp"/>-->
-<!--        <put-attribute name="self" value="/WEB-INF/board/self.jsp"/>-->
-<!--        <put-attribute name="review" value="/WEB-INF/board/review.jsp"/>-->
     </definition>
-
     <!-- macro -->
     <definition name="layout/*" extends="mainLayout">
         <put-attribute name="main" value="/WEB-INF/layout/{1}.jsp"/>
     </definition>
-<!--    <definition name="board/*" extends="mainLayout">-->
-<!--        <put-attribute name="board" value="/WEB-INF/board/{1}.jsp"/>-->
-<!--    </definition>-->
-    <definition name="mainpage/mainPage" template="/WEB-INF/mainpage/mainPage.jsp"/>
-
+    <definition name="board/*" extends="mainLayout">
+        <put-attribute name="main" value="/WEB-INF/board/{1}.jsp"/>
+    </definition>
+    <definition name="complaint/*" extends="mainLayout">
+        <put-attribute name="main" value="/WEB-INF/complaint/{1}.jsp"/>
+    </definition>
+    <definition name="matching/*" extends="mainLayout">
+        <put-attribute name="main" value="/WEB-INF/matching/{1}.jsp"/>
+    </definition>
 </tiles-definitions>

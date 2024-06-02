@@ -20,35 +20,35 @@
         body * {
             font-family: 'Jua';
         }
-        div.mainlayout>div{
+        div.mainLayout>div{
             border: 0px solid gray;
             position: absolute;
         }
-        div.mainlayout>div a{
+        div.mainLayout>div a{
             text-decoration: none;
             color: black;
         }
-        div.mainlayout>div.header{
+        div.mainLayout>div.header{
             width: 100%;
             height: 150px;
             line-height: 100px;
             font-size: 35px;
             text-align: center;
         }
-        div.mainlayout>div.menu{
+        div.mainLayout>div.menu{
             top: 100px;
             width: 100%;
             height: 80px;
             line-height: 80px;
         }
-        div.mainlayout>div.info{
+        div.mainLayout>div.info{
             top:250px;
             left: 50px;
             width: 200px;
             height: 300px;
 
         }
-        div.mainlayout>div.main{
+        div.mainLayout>div.main{
             top:210px;
             left: 300px;
             width: 70%;

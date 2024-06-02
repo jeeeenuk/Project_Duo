@@ -12,16 +12,16 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Alias("FemaleUserDto")
-public class FemaleUserDto {
-    private String fm_id;
-    private String fm_pw;
-    private String fm_name;
-    private String fm_email;
-    private String fm_addr;
-    private String fm_hp;
-    private String fm_birthday;
-    private String fm_photo;
-    private Timestamp fm_joinDay;
-    private boolean fm_match;
+@Alias("UserDto")
+public class UserDto {
+    private String id;
+    private String pw;
+    private String name;
+    private String email;
+    private String addr;
+    private String hp;
+    private String birthday;
+    private String photo;
+    private Timestamp joinDay;
+    private boolean match;
 }
