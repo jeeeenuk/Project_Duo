@@ -22,9 +22,9 @@
     </style>
 </head>
 <body>
-<img src="/image/marryme.png" style="margin-left: 100px;width: 1100px;height: 800px">
-<div style="visibility: hidden">
-<audio src="/audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay"></audio>
-</div>
+<%--<img src="/image/marryme.png" style="margin-left: 100px;width: 1100px;height: 800px">--%>
+<%--<div style="visibility: hidden">--%>
+<%--<audio src="/audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay"></audio>--%>
+<%--</div>--%>
 </body>
 </html>
