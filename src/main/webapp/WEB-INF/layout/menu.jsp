@@ -114,9 +114,6 @@
         <a href="${root}/">Home</a>
     </li>
     <li>
-        <a href="${root}/member/form">회원가입</a>
-    </li>
-    <li>
         <a href="${root}/matching/matching">내짝 만나기</a>
     </li>
     <li class="dropdown">
