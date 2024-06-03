@@ -12,7 +12,7 @@
     </delete>
     <select id="selectByID" parameterType="Map" resultType="UserDto">
         select *
-        from #{tableName}
+        from ${tableName}
         where id = #{id}
     </select>
     <select id="checkID" parameterType="String" resultType="int">
@@ -26,4 +26,30 @@
         where id = #{id}
           and pw = #{pw}
     </select>
+    <select id="getRandomUser" parameterType="String" resultType="UserDto">
+        select *
+        from ${tableName} as m
+        where m.match = false
+        order by rand()
+        limit 3
+    </select>
+
+    <select id="userFindTableM" parameterType="String" resultType="int">
+        select count(*)
+        from m_user
+        where id = #{id}
+    </select>
+    <select id="userFindTableFM" parameterType="String" resultType="int">
+        select count(*)
+        from fm_user
+        where id = #{id}
+    </select>
+    <update id="userUpdateMatch" parameterType="Map">
+        update ${tableName} as m
+        set m.match = true
+        where id = #{id}
+    </update>
+    <insert id="insertMatchData" parameterType="Map">
+        insert into matching (m_id, fm_id) value (#{m_id}, #{fm_id})
+    </insert>
 </mapper>

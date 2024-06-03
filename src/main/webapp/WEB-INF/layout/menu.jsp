@@ -124,6 +124,7 @@
 <div class="loginArea">
     <c:if test="${sessionScope.loginOK==null}">
         <script>
+            alert("로그인을 해주세요.")
             location.href = "${root}/";
         </script>
     </c:if>

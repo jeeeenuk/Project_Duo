@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"*.user","data.*","tiles.config","com.example.duo","controller.*"})
+@ComponentScan({"*.user","data.*","tiles.config","com.example.duo","controller.*","naver.cloud"})
 @MapperScan("data.mapper")
 public class DuoApplication {
 

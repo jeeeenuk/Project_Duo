@@ -17,13 +17,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap"
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp701-138/photo"/>
     <style>
         body * {
             font-family: 'Jua';
         }
+
+        .profile-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
-matching
+<h1>Matching</h1>
+<form action="./randomMatch" method="get">
+    <input type="hidden" name="tableName" value="${tableName}">
+    <button type="submit" class="btn btn-sm">생성하기</button>
+</form>
+<table class="table table-bordered" style="width: 500px;">
+    <tr align="center">
+        <th width="100px">이름</th>
+        <th>생년월일</th>
+        <th>선택</th>
+    </tr>
+
+    <c:forEach var="dto" items="${list}">
+        <tr valign="middle">
+            <td>
+                <img src="${stpath}/${dto.photo}" class="profile-image">${dto.name}
+            </td>
+            <td>${dto.birthday}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-primary">detail</button>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>
