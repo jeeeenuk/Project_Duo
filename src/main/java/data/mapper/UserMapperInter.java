@@ -12,4 +12,5 @@ public interface UserMapperInter {
     public UserDto selectByID(Map<String, String> map);
     public int checkID(String searchID);
     public int isLoginCheck(String id, String pw);
+
 }

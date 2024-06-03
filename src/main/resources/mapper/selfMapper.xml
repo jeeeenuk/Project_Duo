@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.ComplaintMapperInter">
+    <insert id="insertSelf" parameterType="SelfDto">
+        insert into selfDB (writer,id,content,uploadPhoto,writeday)
+        values (#{writer},#{id},#{content},#{uploadphoto},now())
+        <selectKey keyProperty="selfIDX" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <select id="getAllSelf" resultType="SelfDto">
+        select * from SelfDB order by selfIDX desc
+    </select>
+</mapper>

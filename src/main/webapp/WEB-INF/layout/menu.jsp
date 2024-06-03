@@ -106,18 +106,18 @@
             <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
-                <a href="${root}/board/self">자기소개</a>
+                <a href="${root}/self/self">자기소개</a>
             </li>
             <li>
-                <a href="${root}/board/meeting">우리 만나요</a>
+                <a href="${root}/meeting/meeting">우리 만나요</a>
             </li>
             <li>
-                <a href="${root}/board/review">후기게시판</a>
+                <a href="${root}/board/list">문의게시판</a>
             </li>
         </ul>
     </li>
     <li>
-        <a href="${root}/complaint/complaint">고객의소리</a>
+        <a href="${root}/complaint/complaint">고객의후기</a>
     </li>
 </ul>
 
@@ -133,8 +133,8 @@
                 ${sessionScope.loginID}님</b>
 
         <button type="button" id="btnLogout"
-                style="margin-left: 20px;"
-                class="btn btn-success">로그아웃
+                style="margin-left: 20px; color: white; background-color: lightpink"
+                class="btn">로그아웃
         </button>
     </c:if>
 </div>

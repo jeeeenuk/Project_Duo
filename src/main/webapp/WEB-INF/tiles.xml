@@ -30,8 +30,14 @@
 <!--    main -> board/*-->
 <!--    이 때 board 뒤에 붙어 있는 * 는 와일드 카드이며, /board/ 뒤에는 .jsp 가 붙은 모든 파일을 불러올 수 있다는 의미입니다.-->
 <!--    아래의 모든 definition 은 위와 같은 이유로 설정해주었습니다.-->
+    <definition name="meeting/*" extends="mainLayout">
+        <put-attribute name="main" value="/WEB-INF/meeting/{1}.jsp"/>
+    </definition>
     <definition name="board/*" extends="mainLayout">
         <put-attribute name="main" value="/WEB-INF/board/{1}.jsp"/>
+    </definition>
+    <definition name="self/*" extends="mainLayout">
+        <put-attribute name="main" value="/WEB-INF/self/{1}.jsp"/>
     </definition>
 
     <definition name="complaint/*" extends="mainLayout">

@@ -1,13 +1,13 @@
-package controller.board;
+package controller.meeting;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BoardMeetingController {
-    @GetMapping("/board/meeting")
+public class MeetingController {
+    @GetMapping("/meeting/meeting")
     public String meeting()
     {
-        return "board/meeting";
+        return "meeting/meeting";
     }
 }

@@ -12,7 +12,7 @@
     </delete>
     <select id="selectByID" parameterType="Map" resultType="UserDto">
         select *
-        from #{tableName}
+        from ${tableName}
         where id = #{id}
     </select>
     <select id="checkID" parameterType="String" resultType="int">
