@@ -42,18 +42,23 @@
         <th>생년월일</th>
         <th>선택</th>
     </tr>
-
-    <c:forEach var="dto" items="${list}">
-        <tr valign="middle">
-            <td>
-                <img src="${stpath}/${dto.photo}" class="profile-image">${dto.name}
-            </td>
-            <td>${dto.birthday}</td>
-            <td>
-                <button class="btn btn-sm btn-outline-primary">detail</button>
-            </td>
-        </tr>
-    </c:forEach>
+    <form action="./completeMatch" method="get">
+        <c:forEach var="dto" items="${list}">
+            <input type="hidden" name="name" value="${dto.name}">
+            <input type="hidden" name="id" value="${dto.id}">
+            <input type="hidden" name="tableName" value="${tableName}">
+            <input type="hidden" name="loginID" value="${dto.photo}">
+            <tr valign="middle">
+                <td>
+                    <img src="${stpath}/${dto.photo}" class="profile-image">${dto.name}
+                </td>
+                <td>${dto.birthday}</td>
+                <td>
+                    <button type="submit" class="btn btn-sm btn-outline-primary">detail</button>
+                </td>
+            </tr>
+        </c:forEach>
+    </form>
 </table>
 </body>
 </html>
