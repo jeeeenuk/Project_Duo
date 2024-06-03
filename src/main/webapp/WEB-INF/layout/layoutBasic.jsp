@@ -57,7 +57,7 @@
 
     </style>
 </head>
-<body>
+<body style="background-color: #f9f5f1">
 <div class="mainLayout">
     <div class="header">
         <tiles:insertAttribute name="header"/>
