@@ -16,10 +16,10 @@ public class SelfWriteController {
     {
         return "self/writeform";
     }
-//    @PostMapping("/insert")
-//    public String insert()
-//    {
-//
-//    }
+    @PostMapping("/insert")
+    public String insert()
+    {
+        return "self/self";
+    }
 
 }
