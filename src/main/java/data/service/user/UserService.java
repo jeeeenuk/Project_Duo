@@ -78,9 +78,11 @@ public class UserService {
         Map<String, String> map = new HashMap<>();
         map.put("id", myID);
         map.put("tableName", myTableName);
+        System.out.println(map.get("id") + " " + map.get("tableName"));
         userMapperInter.userUpdateMatch(map);
         map.put("id", otherID);
         map.put("tableName", otherTableName);
+        System.out.println(map.get("id") + " " + map.get("tableName"));
         userMapperInter.userUpdateMatch(map);
 
         if (myTableName.equals("m_user")) {
