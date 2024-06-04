@@ -78,11 +78,9 @@ public class UserService {
         Map<String, String> map = new HashMap<>();
         map.put("id", myID);
         map.put("tableName", myTableName);
-        System.out.println(map.get("id") + " " + map.get("tableName"));
         userMapperInter.userUpdateMatch(map);
         map.put("id", otherID);
         map.put("tableName", otherTableName);
-        System.out.println(map.get("id") + " " + map.get("tableName"));
         userMapperInter.userUpdateMatch(map);
 
         if (myTableName.equals("m_user")) {
@@ -92,7 +90,12 @@ public class UserService {
             map.put("m_id", otherID);
             map.put("fm_id", myID);
         }
-
         userMapperInter.insertMatchData(map);
+    }
+    public int userIsMatched(String id, String tableName){
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id);
+        map.put("tableName", tableName);
+        return userMapperInter.userIsMatched(map);
     }
 }

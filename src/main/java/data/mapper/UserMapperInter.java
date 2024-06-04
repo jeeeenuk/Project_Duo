@@ -18,4 +18,5 @@ public interface UserMapperInter {
     public int userFindTableFM(String id);
     public void userUpdateMatch(Map<String, String> map);
     public void insertMatchData(Map<String, String> map);
+    public int userIsMatched(Map<String, String> map);
 }
