@@ -29,9 +29,6 @@
         body * {
             font-family: 'Jua';
         }
-        body {
-            background-image: url("static/image/marryme.png");
-        }
     </style>
     <c:set var="root" value="<%=request.getContextPath()%>"/>
     <script type="text/javascript">
@@ -110,7 +107,6 @@
 </head>
 <body style="background-color: #f9f5f1">
 <div style="float:right; background-color: #f9f5f1;">
-    <embed name="MarryMe" src="/static/marryme_sound.mp3" loop="true" hidden autostart="true">
     <img src="/image/marryme.png" style="width: 50%; margin-left: 375px">
     <audio src="/audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay" style="visibility: hidden"></audio>
 
