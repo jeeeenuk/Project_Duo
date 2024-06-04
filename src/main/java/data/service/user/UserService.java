@@ -92,7 +92,12 @@ public class UserService {
             map.put("m_id", otherID);
             map.put("fm_id", myID);
         }
-
         userMapperInter.insertMatchData(map);
+    }
+    public int userIsMatched(String id, String tableName){
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id);
+        map.put("tableName", tableName);
+        return userMapperInter.userIsMatched(map);
     }
 }

@@ -31,34 +31,39 @@
     </style>
 </head>
 <body>
-<h1>Matching</h1>
 <form action="./randomMatch" method="get">
     <input type="hidden" name="tableName" value="${tableName}">
-    <button type="submit" class="btn btn-sm">생성하기</button>
+    <button type="submit" class="btn btn-sm" style="font-size: 1.2em">매칭 하기 </button>
 </form>
-<table class="table table-bordered" style="width: 500px;">
-    <tr align="center">
-        <th width="100px">이름</th>
-        <th>생년월일</th>
-        <th>선택</th>
-    </tr>
-    <form action="./completeMatch" method="get">
-        <c:forEach var="dto" items="${list}">
-            <input type="hidden" name="name" value="${dto.name}">
-            <input type="hidden" name="id" value="${dto.id}">
-            <input type="hidden" name="tableName" value="${tableName}">
-            <input type="hidden" name="loginID" value="${dto.photo}">
-            <tr valign="middle">
-                <td>
-                    <img src="${stpath}/${dto.photo}" class="profile-image">${dto.name}
-                </td>
-                <td>${dto.birthday}</td>
-                <td>
-                    <button type="submit" class="btn btn-sm btn-outline-primary">detail</button>
-                </td>
-            </tr>
-        </c:forEach>
-    </form>
-</table>
+<c:if test="${userIsMatched==1}">
+    <h1><b>매칭 완료!</b></h1>
+
+</c:if>
+<c:if test="${userIsMatched==0}">
+    <table class="table table-bordered" style="width: 500px;">
+        <tr align="center">
+            <th width="100px">이름</th>
+            <th>생년월일</th>
+            <th>선택</th>
+        </tr>
+        <form action="./completeMatch" method="get">
+            <c:forEach var="dto" items="${list}">
+                <input type="hidden" name="name" value="${dto.name}">
+                <input type="hidden" name="id" value="${dto.id}">
+                <input type="hidden" name="tableName" value="${tableName}">
+                <input type="hidden" name="loginID" value="${dto.photo}">
+                <tr valign="middle">
+                    <td>
+                        <img src="${stpath}/${dto.photo}" class="profile-image">${dto.name}
+                    </td>
+                    <td>${dto.birthday}</td>
+                    <td>
+                        <button type="submit" class="btn btn-sm btn-outline-primary">detail</button>
+                    </td>
+                </tr>
+            </c:forEach>
+        </form>
+    </table>
+</c:if>
 </body>
 </html>

@@ -31,10 +31,12 @@ public class MatchingController {
                                 HttpSession session) {
         String id = (String) session.getAttribute("loginID");
         String tableName = userService.userFindTable(id);
+        String userUpdateFindTable = userService.userUpdateFindTable(id);
+        int userIsMatched = userService.userIsMatched(id, userUpdateFindTable);
         List<UserDto> list = userService.getRandomUser(tableName);
-
+      
+        model.addAttribute("userIsMatched", userIsMatched);
         model.addAttribute("tableName", tableName);
-
         model.addAttribute("list", list);
         return "matching/matching";
     }
@@ -45,10 +47,9 @@ public class MatchingController {
 
                               HttpSession session) {
         String loginID = (String) session.getAttribute("loginID");
-        //System.out.println(name);
         System.out.println(id);
         System.out.println(loginID);
-        //System.out.println(tableName);
+
         userService.userUpdateMatch(loginID, id);
         return "redirect:/matching/matching";
     }
