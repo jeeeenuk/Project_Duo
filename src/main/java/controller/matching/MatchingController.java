@@ -34,7 +34,6 @@ public class MatchingController {
         String userUpdateFindTable = userService.userUpdateFindTable(id);
         int userIsMatched = userService.userIsMatched(id, userUpdateFindTable);
         List<UserDto> list = userService.getRandomUser(tableName);
-      
         model.addAttribute("userIsMatched", userIsMatched);
         model.addAttribute("tableName", tableName);
         model.addAttribute("list", list);
@@ -47,9 +46,6 @@ public class MatchingController {
 
                               HttpSession session) {
         String loginID = (String) session.getAttribute("loginID");
-        System.out.println(id);
-        System.out.println(loginID);
-
         userService.userUpdateMatch(loginID, id);
         return "redirect:/matching/matching";
     }

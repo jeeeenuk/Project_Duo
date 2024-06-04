@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.ComplaintMapperInter">
+    <insert id="insertComplaint" parameterType="ComplaintDto">
+        insert into complaintDB (writer,id,content,uploadPhoto,writeday)
+        values (#{writer},#{id},#{content},#{uploadphoto},now())
+        <selectKey keyProperty="complaintIDX" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <select id="getAllComplaint" resultType="ComplaintDto">
+        select * from complaintDB order by complaintIDX desc
+    </select>
+</mapper>
