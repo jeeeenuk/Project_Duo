@@ -1,9 +1,9 @@
 package data.service.self;
 
-import data.dto.ComplaintDto;
 import data.dto.SelfDto;
-import data.mapper.ComplaintMapperInter;
 import data.mapper.SelfMapperInter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +14,13 @@ public class SelfService {
     @Autowired
     private SelfMapperInter selfMapperInter;
 
-    public void insertSelf(SelfDto dto)
+    public List<SelfDto> getM_userMembers()
     {
-        selfMapperInter.insertSelf(dto);
+        return selfMapperInter.getM_userData();
     }
-
-    public List<SelfDto> getAllSelf()
+    public List<SelfDto> getFm_userMembers()
     {
-        return selfMapperInter.getAllSelf();
+        return selfMapperInter.getFm_userData();
     }
 
 }

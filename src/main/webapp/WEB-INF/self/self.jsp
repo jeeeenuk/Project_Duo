@@ -18,97 +18,102 @@
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <style>
-        body * {
+        body {
             font-family: 'Jua';
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .carousel-wrapper {
+            width: 500px;
+            overflow: hidden;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .news-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .news-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-left: 50px;
+        }
+        .news-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .news-card h3 {
+            font-size: 1.2em;
+            margin: 10px;
+        }
+        .news-card p {
+            margin: 10px;
         }
     </style>
 </head>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp701-138/photo"/>
 <body>
-<div class="input-group" style="width: 600px;margin-bottom: 20px;">
-<h5>Duo의 얼굴</h5>
-<button type="button" class="btn btn-success"
-        style="width: 100px;margin-left: 200px;"
-        onclick="location.href='./form'"> 새글작성</button>
-</div>
-<table  class="table table-striped" style="width: 600px;">
-    <tr class="table-info">
-        <th width="50">번호</th>
-        <th width="270">제목</th>
-        <th width="100">작성자</th>
-        <th width="120">작성일</th>
-        <th>조회</th>
-    </tr>
-    <!-- 글이 없는 경우 -->
-    <c:if test="${totalCount==0}">
-        <tr height="60">
-            <td colspan="5" align="center" valign="middle">
-                <b style="font-size: 22px;">
-                    등록된 글이 없습니다
-                </b>
-            </td>
-        </tr>
-    </c:if>
-    <c:forEach var="dto" items="${list}">
+<div class="container">
+    <div class="top-section">
+        <div class="carousel-wrapper" style="margin-left: 20px;">
+            <h4><b style="color: blue;">Duo의 얼굴</b></h4>
+        </div>
+    </div>
+    <table>
         <tr>
-            <td>
-                    ${no}
-                <c:set var="no" value="${no-1}"/>
-            </td>
-            <td><!-- 제목 -->
-                <a href="./detail?num=${dto.num}&currentPage=${currentPage}">
-                    <!-- relevel 한개당 두칸띄우기 -->
-                    <c:forEach begin="1" end="${dto.relevel}">
-                        &nbsp;&nbsp;
-                    </c:forEach>
-                    <!-- 답글일경우 답글 이미지 -->
-                    <c:if test="${dto.restep>0}">
-                        <img src="../image/re.png">
-                    </c:if>
-                    <!-- 제목 -->
-                        ${dto.subject}
-                    <!-- 사진이 있을경우 아이콘 표시 -->
-                    <c:if test="${dto.uploadphoto!='no'}">
-                        <i class="bi bi-image"
-                           style="color: gray;"></i>
-                    </c:if>
-                    <!-- 댓글이 있는 경우만 갯수 출력 -->
-                    <c:if test="${dto.recount>0}">
-                        <span style="color: red;">(${dto.recount})</span>
-                    </c:if>
-                </a>
-            </td>
-            <td>${dto.writer}</td>
-            <td>
-                <fmt:formatDate value="${dto.writeday}" pattern="yyyy.MM.dd."/>
-            </td>
-            <td>${dto.readcount}</td>
-        </tr>
-    </c:forEach>
-</table>
-<!-- 페이지 번호 출력 -->
-<div style="width: 600px;text-align: center;font-size: 17px;">
-    <!--
-    이전: startPage가 1보다 클경우 이전이 보이도록 설정하는데
-    이전을 클릭할경우 전블럭의 마지막 페이지가 현재페이지가 되어야한다
-     -->
-    <c:if test="${startPage>1}">
-        <a href="./list?currentPage=${startPage-1}"
-           style="text-decoration: none;color:black;">&lt;</a>
-    </c:if>
-    &nbsp;
-    <c:forEach var="pp" begin="${startPage}" end="${endPage}">
-        <a href="./list?currentPage=${pp}"
-           style="text-decoration: none;color:${currentPage==pp?'red':'black'}">
-                ${pp}</a>&nbsp;
-    </c:forEach>
+    <c:forEach var="dto" items="${mlist}">
+    <div class="news-grid" style="margin-right: 200px;float: left">
 
-    <!-- 다음:endPage가 totalPage 보다 작다면 다음이 필요하다
-    그런데 다음을 누를경우 다음블럭의 첫페이지가 현재페이지가 되어야만 한다 -->
-    &nbsp;
-    <c:if test="${endPage<totalPage}">
-        <a href="./list?currentPage=${endPage+1}"
-           style="text-decoration: none;color:black;">&gt;</a>
-    </c:if>
+        <div class="news-card">
+                <img src="${stpath}/${dto.photo}" style="width: 300px; height: 150px;">
+                <p>${dto.name}</p>
+                <p>${dto.email}</p>
+                <p>${dto.birthday}</p>
+        </div>
+        </c:forEach>
+
+    </div>
+    <c:forEach var="dto" items="${fmlist}">
+    <div class="news-grid" style="float: left">
+
+        <div class="news-card">
+            <img src="${stpath}/${dto.photo}" style="width: 300px; height: 150px;">
+            <p>${dto.name}</p>
+            <p>${dto.email}</p>
+            <p>${dto.birthday}</p>
+        </div>
+        </c:forEach>
+        </tr>
+    </table>
+
+    </div>
 </div>
+
+
 </body>
 </html>
