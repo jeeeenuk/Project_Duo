@@ -1,8 +1,10 @@
 package controller.login;
 
+import data.service.matching.MatchingService;
 import data.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,6 +17,8 @@ import java.util.Map;
 public class LoginController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private MatchingService matchingService;
 
     @ResponseBody
     @GetMapping("/user/login")
@@ -44,7 +48,11 @@ public class LoginController {
         session.removeAttribute("loginOK");
     }
     @GetMapping("/main/login")
-    public String login(){
+    public String login(Model model){
+        int totalMatched = matchingService.getTotalMatched();
+        double caculateRation = userService.calculateRatio();
+        model.addAttribute("caculateRation", caculateRation);
+        model.addAttribute("totalMatched", totalMatched);
         return "layout/main";
     }
 }
