@@ -31,7 +31,7 @@
         from ${tableName} as m
         where m.match = false
         order by rand()
-        limit 3
+        limit 1
     </select>
 
     <select id="userFindTableM" parameterType="String" resultType="int">
@@ -50,6 +50,12 @@
         where id = #{id}
     </update>
     <insert id="insertMatchData" parameterType="Map">
-        insert into matching (m_id, fm_id) value (#{m_id}, #{fm_id})
+        insert into matching (m_id, fm_id, matching_date) value (#{m_id}, #{fm_id},now())
     </insert>
+    <select id="userIsMatched" parameterType="Map" resultType="int">
+        select count(*)
+        from ${tableName}
+        where id = #{id}
+          and `match` = true
+    </select>
 </mapper>
