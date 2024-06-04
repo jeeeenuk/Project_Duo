@@ -58,4 +58,10 @@
         where id = #{id}
           and `match` = true
     </select>
+    <select id="getTotalCountFM" resultType="int">
+        select count(*) from fm_user
+    </select>
+    <select id="getTotalCountM" resultType="int">
+        select count(*) from m_user
+    </select>
 </mapper>

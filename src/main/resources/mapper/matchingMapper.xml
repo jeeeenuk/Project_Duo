@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.MatchingMapperInter">
+    <select id="getTotalMatched" resultType="int">
+        select count(*)
+        from matching
+    </select>
+    <select id="selectMatchedByMyID" parameterType="String" resultType="UserDto">
+        select *
+        from m_user
+        where id = (select m_id from matching where m_id = #{id} or fm_id = #{id})
+    </select>
+    <select id="selectMatchedByOtherID" parameterType="String" resultType="UserDto">
+        select *
+        from fm_user
+        where id = (select fm_id from matching where m_id = #{id} or fm_id = #{id})
+    </select>
+</mapper>

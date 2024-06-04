@@ -19,4 +19,6 @@ public interface UserMapperInter {
     public void userUpdateMatch(Map<String, String> map);
     public void insertMatchData(Map<String, String> map);
     public int userIsMatched(Map<String, String> map);
+    public int getTotalCountFM();
+    public int getTotalCountM();
 }

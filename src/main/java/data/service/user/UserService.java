@@ -62,7 +62,8 @@ public class UserService {
             return null;
         }
     }
-    public String userUpdateFindTable(String id){
+
+    public String userUpdateFindTable(String id) {
         if (userMapperInter.userFindTableM(id) == 1) {
             return "m_user";
         } else if (userMapperInter.userFindTableFM(id) == 1) {
@@ -94,10 +95,20 @@ public class UserService {
         }
         userMapperInter.insertMatchData(map);
     }
-    public int userIsMatched(String id, String tableName){
+
+    public int userIsMatched(String id, String tableName) {
         Map<String, String> map = new HashMap<>();
         map.put("id", id);
         map.put("tableName", tableName);
         return userMapperInter.userIsMatched(map);
+    }
+
+    public double calculateRatio() {
+        int countFM = userMapperInter.getTotalCountFM();
+        int countM = userMapperInter.getTotalCountM();
+        int total = countFM + countM;
+        double ratioM = ((double) countM / total) * 100;
+        System.out.println(ratioM);
+        return ratioM;
     }
 }

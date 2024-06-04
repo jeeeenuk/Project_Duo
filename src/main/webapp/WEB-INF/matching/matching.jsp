@@ -33,11 +33,20 @@
 <body>
 <form action="./randomMatch" method="get">
     <input type="hidden" name="tableName" value="${tableName}">
-    <button type="submit" class="btn btn-sm" style="font-size: 1.2em">매칭 하기 </button>
+    <button type="submit" class="btn btn-sm" style="font-size: 1.2em">매칭 하기</button>
 </form>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp701-138/photo"/>
+<%--<h1>현재 총 매칭 인원 : ${totalMatched}</h1>--%>
 <c:if test="${userIsMatched==1}">
     <h1><b>매칭 완료!</b></h1>
-
+    <div style="float: left">
+        <img src="${stpath}/${myDto.photo}" class="profile-image">
+        ${myDto.name}
+    </div>
+    <div style="float: left">
+        <img src="${stpath}/${otherDto.photo}" class="profile-image">
+        ${otherDto.name}
+    </div>
 </c:if>
 <c:if test="${userIsMatched==0}">
     <table class="table table-bordered" style="width: 500px;">
