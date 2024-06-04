@@ -62,9 +62,19 @@ public class UserService {
             return null;
         }
     }
-    public void userUpdateMatch(String myID,String otherID) {
-        String myTableName = userFindTable(myID);
-        String otherTableName = userFindTable(otherID);
+    public String userUpdateFindTable(String id){
+        if (userMapperInter.userFindTableM(id) == 1) {
+            return "m_user";
+        } else if (userMapperInter.userFindTableFM(id) == 1) {
+            return "fm_user";
+        } else {
+            return null;
+        }
+    }
+
+    public void userUpdateMatch(String myID, String otherID) {
+        String myTableName = userUpdateFindTable(myID);
+        String otherTableName = userUpdateFindTable(otherID);
         Map<String, String> map = new HashMap<>();
         map.put("id", myID);
         map.put("tableName", myTableName);
@@ -73,14 +83,19 @@ public class UserService {
         map.put("tableName", otherTableName);
         userMapperInter.userUpdateMatch(map);
 
-        if(myTableName.equals("m_user")) {
+        if (myTableName.equals("m_user")) {
             map.put("m_id", myID);
             map.put("fm_id", otherID);
-        } else{
+        } else {
             map.put("m_id", otherID);
             map.put("fm_id", myID);
         }
-
         userMapperInter.insertMatchData(map);
+    }
+    public int userIsMatched(String id, String tableName){
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id);
+        map.put("tableName", tableName);
+        return userMapperInter.userIsMatched(map);
     }
 }
