@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/board")
@@ -22,7 +24,7 @@ public class BoardDetailDeleteController {
     public String detail(
             @RequestParam int num,
             @RequestParam int currentPage,
-            @RequestParam String tableName,
+            HttpSession session,
             Model model
             )
     {
@@ -31,7 +33,9 @@ public class BoardDetailDeleteController {
         //num 에 해당하는 글 가져오기
         ReBoardDto dto=boardService.getData(num);
         //해당 아이디가 갖고 있는 프로필 사진 가져오기
-        String profile_photo=userService.selectByID(dto.getMyid(), tableName).getPhoto();
+        String loginID = (String) session.getAttribute("loginID");
+        String tableName = userService.userUpdateFindTable(loginID);
+        String profile_photo=userService.selectByID(loginID, tableName).getPhoto();
 
 
 
