@@ -3,11 +3,11 @@
 <mapper namespace="data.mapper.SelfMapperInter">
     <select id="getM_userData" resultType="SelfDto">
         select name,email,birthDay,photo
-        from m_user;
+        from m_user order by name asc ;
     </select>
     <select id="getFm_userData" resultType="SelfDto">
         select name,email,birthDay,photo
-        from fm_user;
+        from fm_user order by name asc;
     </select>
 
 </mapper>

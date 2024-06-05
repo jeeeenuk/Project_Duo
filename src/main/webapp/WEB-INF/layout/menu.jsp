@@ -108,9 +108,9 @@
             <li>
                 <a href="${root}/self/self">자기소개</a>
             </li>
-            <li>
-                <a href="${root}/meeting/meeting">우리 만나요</a>
-            </li>
+<%--            <li>--%>
+<%--                <a href="${root}/meeting/meeting">우리 만나요</a>--%>
+<%--            </li>--%>
             <li>
                 <a href="${root}/board/list">문의게시판</a>
             </li>

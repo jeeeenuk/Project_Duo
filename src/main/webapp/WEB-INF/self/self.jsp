@@ -24,24 +24,20 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 1200px;
-            margin: auto;
+            /*margin: auto;*/
             padding: 20px;
         }
+
         .top-section {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+
         }
-        .carousel-wrapper {
-            width: 500px;
-            overflow: hidden;
-        }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+
+
         .carousel img {
             width: 100px;
             height: 100px;
@@ -55,6 +51,7 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+
         .news-card {
             background-color: white;
             border-radius: 5px;
@@ -62,58 +59,53 @@
             overflow: hidden;
             margin-left: 50px;
         }
+
         .news-card img {
             width: 100%;
             height: 150px;
             object-fit: cover;
         }
+
         .news-card h3 {
             font-size: 1.2em;
             margin: 10px;
         }
+
         .news-card p {
             margin: 10px;
         }
     </style>
 </head>
+<h4><b style="color: lightpink; margin-left: 50px">Duo의 얼굴</b></h4>
 <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp701-138/photo"/>
 <body>
 <div class="container">
     <div class="top-section">
-        <div class="carousel-wrapper" style="margin-left: 20px;">
-            <h4><b style="color: blue;">Duo의 얼굴</b></h4>
+
+
+
+        <div class="news-grid" style="float: left">
+            <c:forEach var="dto" items="${mlist}" end="7">
+
+                <div class="news-card" style="width: 400px; height: 400px">
+                    <img src="${stpath}/${dto.photo}" style="width:100%; height: 300px;">
+                    <p>${dto.name}</p>
+                    <p>${dto.email}</p>
+                    <p>${dto.birthday}</p>
+                </div>
+            </c:forEach>
         </div>
-    </div>
-    <table>
-        <tr>
-    <c:forEach var="dto" items="${mlist}">
-    <div class="news-grid" style="margin-right: 200px;float: left">
-
-        <div class="news-card">
-                <img src="${stpath}/${dto.photo}" style="width: 300px; height: 150px;">
-                <p>${dto.name}</p>
-                <p>${dto.email}</p>
-                <p>${dto.birthday}</p>
+        <div class="news-grid">
+            <c:forEach var="dto" items="${fmlist}" end="7">
+                <div class="news-card" style="width: 400px; height: 400px">
+                    <img src="${stpath}/${dto.photo}" style="width:100%; height: 300px;">
+                    <p>${dto.name}</p>
+                    <p>${dto.email}</p>
+                    <p>${dto.birthday}</p>
+                </div>
+            </c:forEach>
         </div>
-        </c:forEach>
-
-    </div>
-    <c:forEach var="dto" items="${fmlist}">
-    <div class="news-grid" style="float: left">
-
-        <div class="news-card">
-            <img src="${stpath}/${dto.photo}" style="width: 300px; height: 150px;">
-            <p>${dto.name}</p>
-            <p>${dto.email}</p>
-            <p>${dto.birthday}</p>
-        </div>
-        </c:forEach>
-        </tr>
-    </table>
-
     </div>
 </div>
-
-
 </body>
 </html>
