@@ -19,7 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <style>
         body {
-            font-family: 'Jua';
+            font-family: 'Single Day';
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
@@ -76,7 +76,7 @@
         }
     </style>
 </head>
-<h4><b style="color: lightpink; margin-left: 50px">Duo의 얼굴</b></h4>
+<h4><b style="color: lightpink; margin-left: 50px;font-family: 'Single Day'" >Duo의 얼굴</b></h4>
 <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp701-138/photo"/>
 <body>
 <div class="container">

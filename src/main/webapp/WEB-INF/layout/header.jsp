@@ -22,7 +22,7 @@
         </style>
 <body>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
-<a href="${root}/main/login">
+<a href="${root}/main/login" style="font-family: 'Single Day'">
     <img src="${root}/image/male.png" width="50">
     나랑 결혼해 Duo "Marry Me"</a>
 <img src="${root}/image/female.png" width="50">
