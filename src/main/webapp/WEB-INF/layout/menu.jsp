@@ -17,6 +17,9 @@
         body * {
             font-family: 'Jua';
         }
+        div.menubox{
+            margin-left: 300px;
+        }
 
         ul.menu {
             list-style: none;
@@ -37,14 +40,15 @@
             font-family: 'Single Day'
         }
 
-        ul.menu li:hover {
-            box-shadow: 5px 5px 5px gray;
-            background-color: lightblue;
-            color: white;
-        }
+        /*ul.menu li:hover {*/
+        /*    box-shadow: 5px 5px 5px gray;*/
+        /*    background-color: lightblue;*/
+        /*    color: white;*/
+        /*}*/
 
         ul.menu li a:hover {
-            color: white;
+            text-decoration: underline;
+            color: lightpink;
         }
 
         div.loginArea {
@@ -71,6 +75,9 @@
             transition: display 0.5s ease;
         }
 
+
+
+
     </style>
     <c:set var="root" value="<%=request.getContextPath()%>"/>
     <script type="text/javascript">
@@ -93,8 +100,8 @@
     </script>
 </head>
 <body>
-
-<ul class="menu" style="margin-left: 400px">
+<div class="menubox">
+<ul class="menu">
     <li>
         <a href="${root}/main/login">Home</a>
     </li>
@@ -108,9 +115,9 @@
             <li>
                 <a href="${root}/self/self">자기소개</a>
             </li>
-<%--            <li>--%>
-<%--                <a href="${root}/meeting/meeting">우리 만나요</a>--%>
-<%--            </li>--%>
+            <%--            <li>--%>
+            <%--                <a href="${root}/meeting/meeting">우리 만나요</a>--%>
+            <%--            </li>--%>
             <li>
                 <a href="${root}/board/list">문의게시판</a>
             </li>
@@ -120,6 +127,7 @@
         <a href="${root}/complaint/complaint">고객의후기</a>
     </li>
 </ul>
+</div>
 
 <div class="loginArea">
     <c:if test="${sessionScope.loginOK==null}">
