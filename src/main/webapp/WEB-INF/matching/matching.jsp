@@ -29,7 +29,31 @@
             height: 200px;
             border-radius: 50px;
         }
+        .profile-image-matching{
+            width: 300px;
+            height: 300px;
+            border-radius: 50px;
+        }
     </style>
+    <script>
+        $(function (){
+            $("#payment").on("click", function(){
+                let bank = $("select[name=bankType]").val();
+                $.ajax({
+                    url: "/matching/payment",
+                    type: "get",
+                    datatype: "json",
+                    data: {"bank": bank},
+                    success: function (data) {
+                        $("#label-bank").val(data.bank);
+                    },
+                    error: function () {
+                        alert("fail")
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
 <form action="./randomMatch" method="get">
@@ -60,11 +84,10 @@
     </div>
 </c:if>
 <c:if test="${userIsMatched==0}">
-    <table class="table table-bordered" style="width: 500px;">
-        <tr align="center">
-            <th width="100px">이름</th>
-            <th>생년월일</th>
-            <th>선택</th>
+    <table style="width: 800px;">
+        <tr align="center" style="font-size: 2em">
+            <th width="300px">프로필 사진</th>
+            <th width="300px">세부정보</th>
         </tr>
         <form action="./completeMatch" method="get">
             <c:forEach var="dto" items="${list}">
@@ -74,11 +97,14 @@
                 <input type="hidden" name="loginID" value="${dto.photo}">
                 <tr valign="middle">
                     <td>
-                        <img src="${stpath}/${dto.photo}" class="profile-image">${dto.name}
+                        <img src="${stpath}/${dto.photo}" class="profile-image-matching">
                     </td>
-                    <td>${dto.birthday}</td>
+                    <td style="font-size: 1.5em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이름 : ${dto.name}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;생년월일 : ${dto.birthday}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가입일 : <fmt:formatDate value="${dto.joinDay}" pattern="yyyy.MM.dd"/>
+                    </td>
                     <td>
-                        <button type="submit" class="btn btn-sm btn-outline-primary">detail</button>
+                        <button type="submit" class="btn btn-sm btn-outline-primary">선택하기</button>
                     </td>
                 </tr>
             </c:forEach>
@@ -91,20 +117,29 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
+                <h4 class="modal-title">결제하기</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-                Modal body..
+                매칭된 상대와 대화 하고 싶다면 결제가 필요합니다.<br>(무통장입금만 가능합니다.)
+                <div style="margin-top: 10px">
+                    <select name="bankType" class="form-select">
+                        <option disabled selected hidden>은행을 고르세요.</option>
+                        <option value="국민">국민</option>
+                        <option value="신한">신한</option>
+                        <option value="토스">토스페이</option>
+                        <option value="카카오">카카오페이</option>
+                    </select>
+                    <input readonly class="form-control" id="label-bank" style="border-width: 0px; margin-top: 10px">
+                </div>
             </div>
-
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">닫기</button>
+                <button type="button" class="btn btn-primary" id="payment">결제하기</button>
             </div>
-
         </div>
     </div>
 </div>

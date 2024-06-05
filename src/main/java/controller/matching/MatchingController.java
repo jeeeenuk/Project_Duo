@@ -10,11 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -61,5 +63,12 @@ public class MatchingController {
         String loginID = (String) session.getAttribute("loginID");
         userService.userUpdateMatch(loginID, id);
         return "redirect:/matching/matching";
+    }
+    @GetMapping("matching/payment")
+    @ResponseBody
+    public Map<String,String> payment(@RequestParam("bank") String bank) {
+        Map<String, String> map = new HashMap<>();
+        map.put("bank", bank + " : " + UUID.randomUUID());
+        return map;
     }
 }
