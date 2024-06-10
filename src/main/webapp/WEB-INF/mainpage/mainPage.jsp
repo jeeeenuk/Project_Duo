@@ -306,8 +306,8 @@
 </head>
 <body style="background-color: #f9f5f1">
 <div style="float:right; background-color: #f9f5f1;">
-    <img src="/image/marryme.png" style="width: 50%; margin-left: 375px">
-    <audio src="/audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay" style="visibility: hidden"></audio>
+    <img src="../image/marryme.png" style="width: 50%; margin-left: 375px">
+    <audio src="../audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay" style="visibility: hidden"></audio>
 
     <!-- The Modal -->
     <div class="modal" id="login">
