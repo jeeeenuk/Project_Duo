@@ -306,8 +306,8 @@
 </head>
 <body style="background-color: #f9f5f1">
 <div style="float:right; background-color: #f9f5f1;">
-    <img src="../image/marryme.png" style="width: 50%; margin-left: 375px">
-    <audio src="../audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay" style="visibility: hidden"></audio>
+    <img src="${root}/image/marryme.png" style="width: 50%; margin-left: 375px">
+    <audio src="${root}/audio/marryme_sound.mp3" controls loop="true" autoplay="autoplay" style="visibility: hidden"></audio>
 
     <!-- The Modal -->
     <div class="modal" id="login">
@@ -391,7 +391,7 @@
                             </td>
                             <td rowspan="2">
                                 <img src="" id="showImg1" style="width: 100%;"
-                                     onerror="this.src='../image/noimages1.jpeg'">
+                                     onerror="this.src='${root}/image/noimages1.jpeg'">
                             </td>
                         </tr>
                         <tr>
