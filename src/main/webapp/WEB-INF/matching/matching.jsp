@@ -40,7 +40,7 @@
             $("#payment").on("click", function(){
                 let bank = $("select[name=bankType]").val();
                 $.ajax({
-                    url: "/matching/payment",
+                    url: "./matching/payment",
                     type: "get",
                     datatype: "json",
                     data: {"bank": bank},

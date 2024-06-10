@@ -259,7 +259,7 @@
                 $.ajax({
                     type: "get",
                     dataType: "json",
-                    url: "/user/checkID",
+                    url: "./user/checkID",
                     data: {"searchID": $("#myID").val()},
                     success: function (data) {
                         if (data.count === 0) {
