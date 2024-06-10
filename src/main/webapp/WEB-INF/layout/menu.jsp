@@ -87,7 +87,7 @@
                 $.ajax({
                     type: "get",
                     dataType: "text",
-                    url: "../../user/logout",
+                    url: "../user/logout",
                     success: function () {
                         console.log("logout")
                         location.href = `${root}/`
